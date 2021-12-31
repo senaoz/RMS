@@ -37,10 +37,13 @@ if (isset($_POST["submit"])) {
 <div><span class="gradientText">Create New Course</span>
     <h3>Only administrators can create new courses to the system with this page. Please fill out the form for each new course.</h3>
     <form action="createCourses.php" method="post">
+        <div class="inlineBlock" style="padding-right: 1%;">
         <label>Course ID</label>
         <input type="text" name="ID" required>
+        </div><div class="inlineBlock" style="padding-left: 1%;">
         <label>Course Name</label>
         <input type="text" name="c_name" required>
+        </div>
         <label>Course Description</label>
         <input type="text" name="c_description">
         <label>Quota</label>

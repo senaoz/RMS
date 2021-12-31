@@ -14,7 +14,7 @@
 ?>
 <form method="post" action="tables.php" style="padding: 5%">
     <br><br>
-    <label>Confirm Email</label>
+    <label>Confirm The User Email:</label>
     <input type="email" name="mail" required>
     <label>New Password:</label>
     <input type="password" name="newPassword" minlength="<?php $MinPwd?>" maxlength="<?php $MaxPwd?>" required>

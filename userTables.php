@@ -4,7 +4,11 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="padding: 5% 8%;">
-<?php include("menu.php"); include("db.php"); include("parameters.php");
+<?php
+if ($_SESSION['role'] == 'Professor') {
+    header("Location: profTables.php"); }
+
+include("menu.php"); include("db.php"); include("parameters.php");
 ?>
 <h2 class="gradientText">My Courses</h2>
 <table id="tables">

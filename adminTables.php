@@ -17,7 +17,7 @@
         <th>Course Final Date</th>
         <th>Credits</th>
         <th>Consent</th>
-        <th>Course Professor</th>
+        <th>Professor Mail</th>
     </tr>
     </thead>
 
@@ -56,7 +56,6 @@
         <th>User Name</th>
         <th>User Surname</th>
         <th>User Phone</th>
-        <th>User University</th>
         <th>Edit</th>
         <th>Deactivate</th>
     </tr>
@@ -71,7 +70,6 @@
         $u_name = $row[1];
         $u_surname = $row[2];
         $u_phone = $row[3];
-        $u_uni = $row[6];
         $u_activate = $row[9];
         ?>
         <tr>
@@ -79,7 +77,6 @@
             <td><?php echo $u_name;  ?></td>
             <td><?php echo $u_surname;  ?></td>
             <td><?php echo $u_phone;  ?></td>
-            <td><?php echo $u_uni;  ?></td>
             <td><button class="button" href="#acilirKutu">Reset The Password</button>
                 <div id="acilirKutu" class="acilirKutu">
                     <div class="KutuInside">
@@ -102,7 +99,6 @@
         <th>User Name</th>
         <th>User Surname</th>
         <th>User Phone</th>
-        <th>User University</th>
         <th>Edit</th>
         <th>Deactivate</th>
     </tr>
@@ -117,7 +113,6 @@
         $u_name = $row[1];
         $u_surname = $row[2];
         $u_phone = $row[3];
-        $u_uni = $row[6];
         $u_activate = $row[9];
         ?>
         <tr>
@@ -125,7 +120,6 @@
             <td><?php echo $u_name;  ?></td>
             <td><?php echo $u_surname;  ?></td>
             <td><?php echo $u_phone;  ?></td>
-            <td><?php echo $u_uni;  ?></td>
             <td><button class="button" href="#acilirKutu">Reset The Password</button>
                 <div id="acilirKutu" class="acilirKutu">
                     <div class="KutuInside">
@@ -148,7 +142,6 @@
         <th>Admin Name</th>
         <th>Admin Surname</th>
         <th>Admin Phone</th>
-        <th>Admin University</th>
         <th>Edit</th>
     </tr>
     </thead>
@@ -162,14 +155,12 @@
         $u_name = $row[1];
         $u_surname = $row[2];
         $u_phone = $row[3];
-        $u_uni = $row[6];
         ?>
         <tr>
             <td><?php echo $u_mail;  ?></td>
             <td><?php echo $u_name;  ?></td>
             <td><?php echo $u_surname;  ?></td>
             <td><?php echo $u_phone;  ?></td>
-            <td><?php echo $u_uni;  ?></td>
             <td><button class="button" href="#acilirKutu">Reset The Password</button>
                 <div id="acilirKutu" class="acilirKutu">
                     <div class="KutuInside">
