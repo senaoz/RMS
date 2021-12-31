@@ -73,7 +73,7 @@
         $u_activate = $row[9];
         ?>
         <tr>
-            <td><?php echo $u_mail;  ?></td>
+            <td id="mail"><?php echo $u_mail;  ?></td>
             <td><?php echo $u_name;  ?></td>
             <td><?php echo $u_surname;  ?></td>
             <td><?php echo $u_phone;  ?></td>
@@ -86,7 +86,7 @@
                 </div>
             </td>
             <td><?php if ($u_activate == 0) { ?><a id="edit" href="activate.php?a=<?php echo $u_mail ?>">Activate</a><?php }
-                else { ?><a id="edit" href="deactivate.php?d=<?php echo $u_mail ?>">&times;</a><?php }?></td>
+                else { ?> <a id="edit" href="deactivate.php?d=<?php echo $u_mail ?>">&times;</a> <?php }?></td>
         </tr> <?php
     } ?>
 </table>
@@ -116,7 +116,7 @@
         $u_activate = $row[9];
         ?>
         <tr>
-            <td><?php echo $u_mail;  ?></td>
+            <td id="mail"><?php echo $u_mail;  ?></td>
             <td><?php echo $u_name;  ?></td>
             <td><?php echo $u_surname;  ?></td>
             <td><?php echo $u_phone;  ?></td>
@@ -129,8 +129,10 @@
                 </div>
             </td>
             <td><?php if ($u_activate == 0) { ?><a id="edit" href="activate.php?a=<?php echo $u_mail ?>">Activate</a><?php }
-                else { ?><a id="edit" href="deactivate.php?d=<?php echo $u_mail ?>">&times;</a><?php }?></td>
-        </tr> <?php
+                else { ?> <a id="edit" href="deactivate.php?d=<?php echo $u_mail ?>">&times;</a> <?php } ?>
+            </td>
+        </tr>
+        <?php
     } ?>
 </table>
 <br><br>
@@ -157,7 +159,7 @@
         $u_phone = $row[3];
         ?>
         <tr>
-            <td><?php echo $u_mail;  ?></td>
+            <td id="mail"><?php echo $u_mail;  ?></td>
             <td><?php echo $u_name;  ?></td>
             <td><?php echo $u_surname;  ?></td>
             <td><?php echo $u_phone;  ?></td>
@@ -175,18 +177,18 @@
 <br><br>
 <a id="submit" href="exportReport.php" style="width: 100%; display: block; text-align: center; padding: 10px;">Get User Statistics Report</a>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     var kutu = document.getElementById("acilirKutu");
     var buton = document.getElementById("buton");
     var span = document.getElementsByClassName("close")[0];
 
     buton.onclick = function() {
-        kutu.style.display = "block";
-    }
+        kutu.style.display = "block"; }
 
     span.onclick = function() {
-        kutu.style.display = "none";
-    }
+        kutu.style.display = "none"; }
 
     window.onclick = function(event) {
         if (event.target == kutu) {
