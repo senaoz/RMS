@@ -4,9 +4,51 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="padding: 5% 8%;">
-<?php include("menu.php"); include("db.php"); include("parameters.php");
+<?php
+$role=$_SESSION["role"];
+if ($role == 'Professor') header("Location: profTables.php");
+
+include("menu.php"); include("db.php"); include("parameters.php"); $u_mail = $_SESSION["u_mail"];
 if(isset($_GET['m'])) $message = $_GET['m'];
 ?>
+<h1 class="gradientText">My Courses</h1>
+<table id="tables">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Final Date</th>
+        <th>Professor Name</th>
+        <th>Professor Surname</th>
+        <th>Professor Mail</th>
+        <th style="width: 80px;">Drop</th>
+        <th>Grades</th>
+    </tr>
+    </thead>
+    <?php
+    $MyCourses = $db -> query("SELECT * FROM `ParticipantList` WHERE s_mail='$u_mail'");
+
+    while($rowC = $MyCourses->fetch_row()) {
+        $c_id = $rowC[1];
+        $c_name = $rowC[2];
+        $final_date = $rowC[3];
+        $prof_name = $rowC[5];
+        $prof_surname = $rowC[6];
+        $c_professor_mail = $rowC[4];
+        ?>
+        <tr>
+            <td><?php echo $c_id;  ?></td>
+            <td><?php echo $c_name;  ?></td>
+            <td><?php echo $final_date;  ?></td>
+            <td><?php echo $prof_name;  ?></td>
+            <td><?php echo $prof_surname;  ?></td>
+            <td><?php echo $c_professor_mail;  ?></td>
+            <td><a id="edit" href="dropCourse.php?drop=<?php echo $u_mail ?>&c_id=<?php echo $c_id ?>">Drop</a></td>
+            <td>      </td>
+        </tr> <?php
+    } ?>
+</table>
+<br><br>
 <h3 align="center"><?php if(isset($message)) { echo $message; } ?></h3>
 <h1 class="gradientText">All Courses</h1>
 <table id="tables">
@@ -18,11 +60,10 @@ if(isset($_GET['m'])) $message = $_GET['m'];
         <th>Current Participants</th>
         <th>Consent</th>
         <th>Professor Mail</th>
-        <th>Add My List</th>
+        <th style="width: 80px;">Add</th>
     </tr>
     </thead>
-    <?php $u_mail = $_SESSION["u_mail"];
-
+    <?php
     $QuotaStudents = $db -> query("SELECT * FROM `CurrentParticipants` WHERE `Current Participant` < `Quota`");
     $QuotaFull  =  $db -> query("SELECT * FROM `CurrentParticipants` WHERE `Current Participant` >= `Quota`");
 

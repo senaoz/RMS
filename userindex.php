@@ -20,8 +20,8 @@
 </p>
 <section>
     <?php include("db.php"); include("parameters.php");
+    $u_mail = $_SESSION["u_mail"];
     if(isset($_POST["submit"])){
-        $u_mail = $_SESSION["u_mail"];
         $u_password = $_SESSION["u_password"];
         $currentPassword = $_POST["currentPassword"];
         $newPassword = $_POST["newPassword"];
@@ -52,6 +52,15 @@
     </form>
     <div class="box" id="box2">
         <span>Your Courses</span>
+        <?php
+        $query = "SELECT * FROM `courseDetails` WHERE s_mail='$u_mail'";
+        $users = $db -> query($query);
+
+        while($row = $users->fetch_row()) {
+            $c_id = $row[0];
+            ?>
+            <h3 style="text-align: center;"><?php echo $c_id;  ?></h3> <?php
+        } ?>
     </div>
 </section>
 </body>

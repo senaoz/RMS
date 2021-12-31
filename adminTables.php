@@ -5,7 +5,9 @@
 </head>
 <body style="padding: 5% 8%;">
 <?php include("menu.php"); include("db.php"); include("parameters.php");
-?>
+
+if ($_SESSION['role'] !== 'Admin') header("Location: index.php"); } ?>
+
 <h2 class="gradientText">Courses</h2>
 <table id="tables">
     <thead >
@@ -177,8 +179,6 @@
 <br><br>
 <a id="submit" href="exportReport.php" style="width: 100%; display: block; text-align: center; padding: 10px;">Get User Statistics Report</a>
 </body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     var kutu = document.getElementById("acilirKutu");
     var buton = document.getElementById("buton");
