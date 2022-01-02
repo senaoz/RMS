@@ -195,5 +195,5 @@ if ($_SESSION['role'] !== 'Admin') header("Location: index.php"); } ?>
             kutu.style.display = "none";
         }
     }
-</script>
+</scripheroku config | grep CLEARDB_DATABASE_URLt>
 </html>
