@@ -20,6 +20,7 @@
 </p>
 <section>
     <?php include("db.php"); include("parameters.php");
+
     $u_mail = $_SESSION["u_mail"];
     if(isset($_POST["submit"])){
         $u_password = $_SESSION["u_password"];
@@ -44,9 +45,9 @@
         <label>Current Password:</label>
         <input type="password" name="currentPassword" required>
         <label>New Password:</label>
-        <input type="password" name="newPassword" minlength="<?php $MinPwd?>" maxlength="<?php $MaxPwd?>" required>
+        <input type="password" name="newPassword" minlength="<?php echo $MinPwd?>" maxlength="<?php echo $MaxPwd?>" required>
         <label>Confirm Password:</label>
-        <input type="password" name="confirmPassword" minlength="<?php $MinPwd?>" maxlength="<?php $MaxPwd?>" required>
+        <input type="password" name="confirmPassword" minlength="<?php echo $MinPwd?>" maxlength="<?php echo $MaxPwd?>" required>
         <input type="submit" name="submit">
         <p><?php if(isset($message)) { echo $message; } ?></p>
     </form>

@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="padding: 5% 10%">
-<?php include("menu.php");
+<?php include("menu.php"); include("db.php");
 // Eğer giriş yapmış ise uyarı veriyor.
 if (isset($_SESSION["u_mail"])){
     echo "<script type='text/javascript'>alert('You have already logged in.');</script>"; }
@@ -12,19 +12,18 @@ if (isset($_SESSION["u_mail"])){
 if(isset($_POST["submit"])) {
     $u_mail = $_POST["u_mail"];
     $u_password = $_POST["u_password"];
-    include("db.php");
-    $query = "SELECT * FROM `users` WHERE u_mail='$u_mail' and u_password='$u_password'";
-    $result = $db->query($query);
+    $result = $db->query("SELECT * FROM `users` WHERE u_mail='$u_mail' and u_password='$u_password'");
 
     if ($result->num_rows == 0) {
         $message = "<br>Your e-mail or password is wrong.";
     } else {
-        $_SESSION["u_mail"] = $u_mail;
-        $_SESSION["u_password"] = $u_password;
+        session_start();
         $row = $result->fetch_row();
+        $_SESSION["u_mail"] = $row[0];
         $_SESSION["u_name"] = $row[1];
         $_SESSION["u_uni"] = $row[6];
         $_SESSION["role"] = $row[8];
+        $_SESSION["u_password"] = $row[7];
         $_SESSION["u_activate"] = $row[9];
         if ($_SESSION["u_activate"] == 0){
             $message = "<br>Your account is deactivated by the admin. If you think there is a problem, please contact us through <b>contact@mis233.com</b>.";

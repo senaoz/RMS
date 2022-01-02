@@ -4,9 +4,9 @@ $query = "SELECT * FROM `parameters` WHERE `Index` = 1";
 $parameters = $db -> query($query);
 
 $row = $parameters->fetch_row();
-$MinPwd = $row[1];
-$MaxPwd = $row[2];
-$MaxCourse = $row[3];
-$MaxStuCourse = $row[4];
-$MaxProfCourse = $row[5];
+$MinPwd = (int) $row[1];
+$MaxPwd = (int) $row[2];
+$MaxCourse = (int) $row[3];
+$MaxStuCourse = (int) $row[4];
+$MaxProfCourse = (int) $row[5];
 ?>
