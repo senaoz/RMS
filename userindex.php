@@ -9,9 +9,7 @@
     if (!isset($_SESSION["u_mail"])){
         header("Location: index.php");
     } ?>
-    <h1>Hello <?php
-        echo $_SESSION['u_name']; $_SESSION["u_uni"]
-        ?>!</h1>
+    <h1>Hello <?php echo $_SESSION['u_name']; $_SESSION["u_uni"] ?>!</h1>
     <h3 style="font-weight: normal"><?php
         echo $_SESSION["role"]." at ".$_SESSION["u_uni"];
         ?></h3>

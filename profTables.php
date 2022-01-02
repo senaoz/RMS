@@ -7,7 +7,7 @@
 
 <?php if ($_SESSION['role'] == 'Student') header("Location: courses.php");
 
-include("menu.php"); include("db.php"); include("parameters.php"); $p_mail = $_SESSION["u_mail"];
+include("menu.php"); include("db.php"); $p_mail = $_SESSION["u_mail"];
 ?>
 
 <h1 class="gradientText">All Courses</h1>
@@ -34,14 +34,7 @@ include("menu.php"); include("db.php"); include("parameters.php"); $p_mail = $_S
             <td><?php echo $c_id;  ?></td>
             <td><?php echo $c_name;  ?></td>
             <td><?php echo $final_date;  ?></td>
-            <td><button class="button" href="#acilirKutu">Enter Grades</button>
-                <div id="acilirKutu" class="acilirKutu">
-                    <div class="KutuInside">
-                        <span class="close">&times;</span>
-                        <?php include("enterGrades.php"); ?>
-                    </div>
-                </div>
-            </td>
+            <td><button class="button" href="submitGrades.php?course=<?php echo $c_id ?>">Enter Grades</button></td>
         </tr> <?php
     } ?>
 </table>
