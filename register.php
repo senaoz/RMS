@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.cs">
 </head>
 <body style="padding: 5% 8%;">
-<?php include("menu.php"); include("parameters.php"); include("db.php");
+<?php include("menu.php"); include("parameters.php");
 
 $u_mail = $_SESSION["u_mail"];
 

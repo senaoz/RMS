@@ -17,7 +17,6 @@ if(isset($_POST["submit"])) {
     if ($result->num_rows == 0) {
         $message = "<br>Your e-mail or password is wrong.";
     } else {
-        session_start();
         $row = $result->fetch_row();
         $_SESSION["u_mail"] = $row[0];
         $_SESSION["u_name"] = $row[1];

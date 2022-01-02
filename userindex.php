@@ -19,7 +19,7 @@
 <p style="padding: 10% 10% 0% 10%">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tempor tellus finibus lectus faucibus, eu vestibulum ex rutrum. Nam convallis laoreet mi, quis tempus sapien tincidunt tempus. Sed lectus libero, dignissim efficitur arcu sed, condimentum iaculis nulla. Sed nec augue in tortor pretium sollicitudin a eu velit. Etiam vulputate libero non purus sollicitudin, et dapibus felis aliquet. Praesent non diam ultrices, dictum ligula at, congue est. Nulla sagittis leo dui, vel aliquam est vulputate quis. Quisque malesuada tortor ipsum. Nulla in lacinia leo, vitae dapibus libero. Pellentesque mauris mauris, ornare ac sodales a, efficitur id arcu. Duis eget nulla volutpat, dapibus purus in, efficitur ligula. Nam ultricies, mauris id rutrum mollis, elit eros rutrum dolor, a mattis dui nibh eu dolor. Pellentesque eu egestas tortor. Mauris eget nibh vitae arcu lobortis dapibus. Nam at metus pretium, eleifend neque at, fermentum ex. Integer ipsum lorem, porttitor vel turpis vitae, fermentum dignissim nisi.
 </p>
 <section>
-    <?php include("db.php"); include("parameters.php");
+    <?php include("parameters.php");
 
     $u_mail = $_SESSION["u_mail"];
     if(isset($_POST["submit"])){

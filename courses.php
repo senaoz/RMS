@@ -5,10 +5,10 @@
 </head>
 <body style="padding: 5% 8%;">
 <?php
-$role=$_SESSION["role"];
+include("menu.php"); include("parameters.php");
+$role = $_SESSION["role"]; $u_mail = $_SESSION["u_mail"];
 if ($role == 'Professor') header("Location: profTables.php");
 
-include("menu.php"); include("db.php"); include("parameters.php"); $u_mail = $_SESSION["u_mail"];
 if(isset($_GET['m'])) $message = $_GET['m'];
 ?>
 <h1 class="gradientText">My Courses</h1>
