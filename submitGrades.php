@@ -21,6 +21,7 @@
 
     if (isset($_POST["save"])) {
         $new_grade = $_POST["grade"];
+
     }
 
     while($row = $students->fetch_row()) {
@@ -34,7 +35,7 @@
             <td><?php echo $name;  ?></td>
             <td><?php echo $surname;  ?></td>
             <td><?php
-                if ($grade !== 'Not Submitted') echo $grade;
+                if (($grade !== 'Not Submitted') && ($grade !== '')) echo $grade;
                 else { ?>
                         <form method="post">
                             <select name="grade">

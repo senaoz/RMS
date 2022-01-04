@@ -5,9 +5,9 @@
 </head>
 <body style="padding: 5% 8%;">
 
-<?php if ($_SESSION['role'] == 'Student') header("Location: courses.php");
-
+<?php
 include("menu.php"); include("db.php"); $p_mail = $_SESSION["u_mail"];
+if ($_SESSION['role'] !== 'Professor') header("Location: courses.php");
 ?>
 
 <h1 class="gradientText">All Courses</h1>
@@ -39,21 +39,4 @@ include("menu.php"); include("db.php"); $p_mail = $_SESSION["u_mail"];
     } ?>
 </table>
 </body>
-<script>
-    var kutu = document.getElementById("acilirKutu");
-    var buton = document.getElementById("buton");
-    var span = document.getElementsByClassName("close")[0];
-
-    buton.onclick = function() {
-        kutu.style.display = "block"; }
-
-    span.onclick = function() {
-        kutu.style.display = "none"; }
-
-    window.onclick = function(event) {
-        if (event.target == kutu) {
-            kutu.style.display = "none";
-        }
-    }
-</script>
 </html>
