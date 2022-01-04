@@ -6,6 +6,11 @@
 <body style="padding: 5% 8%;">
 <?php
 include("menu.php"); include("parameters.php");
+
+if (!isset($_SESSION["u_mail"])){
+    header("Location: index.php");
+}
+
 $role = $_SESSION["role"]; $u_mail = $_SESSION["u_mail"];
 if ($role == 'Professor') header("Location: profTables.php");
 

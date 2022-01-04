@@ -4,11 +4,14 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body style="padding: 5% 8%;">
-<?php
+<?php include("menu.php"); include("db.php"); include("parameters.php");
 if ($_SESSION['role'] == 'Professor') {
     header("Location: profTables.php"); }
 
-include("menu.php"); include("db.php"); include("parameters.php");
+if (!isset($_SESSION["u_mail"])){
+    header("Location: index.php");
+}
+$u_mail = $_SESSION["u_mail"];
 ?>
 <h2 class="gradientText">My Courses</h2>
 <table id="tables">
@@ -24,9 +27,7 @@ include("menu.php"); include("db.php"); include("parameters.php");
         <th>Course Professor</th>
     </tr>
     </thead>
-
     <?php
-    $u_mail = $_SESSION["u_mail"];
     $courses = $db -> query("SELECT `c_ID` FROM `courseDetails` WHERE `s_mail`='$u_mail'");
 
     while ($row = $courses->fetch_row()) {
