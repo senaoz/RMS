@@ -44,12 +44,17 @@
         <p><?php if(isset($message)) { echo $message; } ?></p>
     </form>
     <div class="box" id="box2">
-        <span>Your Courses</span>
-        <?php
-        $users = $db -> query("SELECT * FROM `courseDetails` WHERE s_mail='$u_mail'");
-        while($row = $users->fetch_row()) {
-            $c_id = $row[0];
-            ?>
+        <span>Your Courses</span><?php
+
+        if ($_SESSION['role'] == 'Professor') {
+            $courses = $db -> query("SELECT * FROM `courses` WHERE c_professor_mail='$u_mail'");
+        }
+
+        if ($_SESSION['role'] == 'Student') {
+            $courses = $db -> query("SELECT * FROM `courseDetails` WHERE s_mail='$u_mail'");
+        }
+
+        while($row = $courses->fetch_row()) { $c_id = $row[0]; ?>
             <h3 style="text-align: center;"><?php echo $c_id;  ?></h3><?php
         } ?>
     </div>

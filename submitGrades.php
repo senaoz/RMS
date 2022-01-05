@@ -5,7 +5,8 @@
     <link rel="stylesheet" type="text/css" href="grades.css">
 </head>
 <body style="padding: 5% 8%;">
-<?php include("menu.php"); include("db.php"); $course = $_GET['course']; ?>
+<?php include("menu.php"); include("db.php"); $course = $_GET['course'];
+if ($_SESSION['role'] !== 'Professor') header("Location: index.php");?>
 <h2 class="gradientText">Students in <?php echo $course ?></h2>
 <table id="tables">
     <thead>
