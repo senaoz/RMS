@@ -1,7 +1,8 @@
 <html>
 <head>
-    <title>Admin Tables</title>
+    <title>Grades</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="grades.css">
 </head>
 <body style="padding: 5% 8%;">
 <?php include("menu.php"); include("db.php"); $course = $_GET['course']; ?>
@@ -16,12 +17,13 @@
     </tr>
     </thead>
     <?php
-    $query="????";
+    $query="SELECT s_mail, s_name, s_surname, s_grade FROM `ParticipantList` WHERE ID='$course' GROUP BY `s_mail`";
     $students = $db -> query($query);
 
     if (isset($_POST["save"])) {
         $new_grade = $_POST["grade"];
-
+        $s_mail = $_POST["mail"];
+        $result = $db -> query("INSERT INTO `courseDetails` (`c_ID`, `s_mail`, `s_grade`) VALUES ('$course', '$s_mail', '$new_grade')");
     }
 
     while($row = $students->fetch_row()) {
@@ -38,17 +40,36 @@
                 if (($grade !== 'Not Submitted') && ($grade !== '')) echo $grade;
                 else { ?>
                         <form method="post">
+                            <input type="hidden" name="mail" value="<?php echo $mail; ?>">
                             <select name="grade">
-                                <option>Failed</option>
+                                <option name="Failed">Failed</option>
                                 <option>Passed</option>
                                 <option>Not Submitted</option>
                             </select>
                             <input type="submit" name="save" value="SAVE">
-                        </form>
-               <?php } ?></td>
-        </tr>
-        <?php
+                        </form><?php
+                } ?></td>
+        </tr><?php
     } ?>
 </table>
+<?php if ($students->num_rows == 0) { ?>
+    <style>
+        #tables {
+            display:none !important;
+        }
+        #returnBack {
+            background: -webkit-linear-gradient(45deg, #ffe770, #ff210e);
+            padding: 1em;
+            border-radius: 10px;
+            color: #000;
+            text-decoration: none;
+            float: right;
+            margin-top: 10em;
+            font-weight: bold;
+        }
+    </style>
+    <?php echo "There are no students registered for this course."; ?>
+    <a id="returnBack" href="profTables.php">Return My Courses</a><?php
+} ?>
 </body>
 </html>

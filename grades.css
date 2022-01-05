@@ -1,0 +1,11 @@
+form {
+    margin-block-end: 0em;
+}
+
+select {
+    margin: 0px !important;
+}
+
+input[type="submit"] {
+    margin: 10px 0px 0px !important;
+}
