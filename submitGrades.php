@@ -18,13 +18,11 @@ if ($_SESSION['role'] !== 'Professor') header("Location: index.php");?>
     </tr>
     </thead>
     <?php
-    $query="SELECT s_mail, s_name, s_surname, s_grade FROM `ParticipantList` WHERE ID='$course' GROUP BY `s_mail`";
-    $students = $db -> query($query);
-
+    $students = $db -> query("SELECT s_mail, s_name, s_surname, s_grade FROM `ParticipantList` WHERE ID='$course'");
     if (isset($_POST["save"])) {
         $new_grade = $_POST["grade"];
         $s_mail = $_POST["mail"];
-        $result = $db -> query("INSERT INTO `courseDetails` (`c_ID`, `s_mail`, `s_grade`) VALUES ('$course', '$s_mail', '$new_grade')");
+        $result = $db -> query("UPDATE `courseDetails` SET `s_grade`='$new_grade' WHERE `c_ID`='$course' AND `s_mail`='$s_mail'");
     }
 
     while($row = $students->fetch_row()) {
@@ -43,7 +41,7 @@ if ($_SESSION['role'] !== 'Professor') header("Location: index.php");?>
                         <form method="post">
                             <input type="hidden" name="mail" value="<?php echo $mail; ?>">
                             <select name="grade">
-                                <option name="Failed">Failed</option>
+                                <option>Failed</option>
                                 <option>Passed</option>
                                 <option>Not Submitted</option>
                             </select>

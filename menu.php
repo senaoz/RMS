@@ -76,7 +76,8 @@ if (isset($_SESSION["u_mail"])){
     if ($_SESSION["role"] == 'Professor') {
         echo '<ul>
     <li><a href="index.php">Home</a></li>
-    <li><a href="profTables.php">My Courses</a></li>
+    <li><a href="profTables.php">My Courses</a></li> 
+    <li><a href="consents.php">Consents</a></li>
     <li class="dropdown">
         <a href="userindex.php" class="dropbtn">User Menu</a>
         <div class="dropdown-content">
@@ -85,7 +86,7 @@ if (isset($_SESSION["u_mail"])){
             </ul>';
     }
 
-    else {
+    if ($_SESSION["role"] == 'Student') {
         echo '<ul>
     <li><a href="index.php">Home</a></li>
     <li><a href="userTables.php">My Information</a></li>

@@ -25,16 +25,18 @@ if (isset($_POST["submit"])) {
     $row = $theProfessor->fetch_row();
     $c_professor_mail = $row[0];
 
+    $add = $db -> query("INSERT INTO `courseDetails` (`c_ID`, `s_mail`, `consent_status`) VALUES ('$ID', '$c_professor_mail', 'Automatically Approved')"); //Prof. öğrenci gibi de sisteme ekleniyor, toplu mail attması gibi durumlarda ulaştığını görmek için (kontrol amaçlı).
     $query = "INSERT INTO `courses` (`ID`, `c_name`, `c_description`, `c_quota`, `c_final_date`, `c_credits`, `c_consent`, `c_professor_mail`) VALUES ('$ID', '$c_name', '$c_description', '$c_quota', '$c_final_date', '$c_credits', '$c_consent', '$c_professor_mail')";
     $result = $db -> query($query);
     if ($result) {
-        $message = "<br><br>Course is created.";
+        $message = "<br><br>Course is created.<br><br>";
     } else {
-        $message = "<br><br>Something wrong. Please try again.";
+        $message = "<br><br>Something wrong. Please try again.<br><br>";
     }
 } ?>
 
 <div><span class="gradientText">Create New Course</span>
+    <p align="center"><?php if(isset($message)) { echo $message; } ?></p>
     <h3>Only administrators can create new courses to the system with this page. Please fill out the form for each new course.</h3>
     <form action="createCourses.php" method="post">
         <div class="inlineBlock" style="padding-right: 1%;">
@@ -52,11 +54,14 @@ if (isset($_POST["submit"])) {
         <input type="date" name="c_final_date">
         <label>Credits</label>
         <input type="number" name="c_credits" required>
-        <label>Consent (*Please just write "YES" or "NO".)</label>
-        <input type="text" name="c_consent" maxlength="3" required>
+        <label>Consent is needed?</label>
+        <select name="c_consent" required>
+            <option>YES</option>
+            <option>NO</option>
+        </select>
         <label>Course Professor</label>
         <select name="c_professor" required>
-        <?php include("db.php");
+        <?php
         $query="SELECT * FROM `users` WHERE `role`='Professor'";
         $professors = $db -> query($query);
 
@@ -65,8 +70,8 @@ if (isset($_POST["submit"])) {
             $name = $row[1];
             $surname = $row[2];
             ?><option><?php echo $name." ".$surname;  ?></option><?php } ?>
+        </select>
         <input type="submit" name="submit" value="CREATE">
-            <p align="center"><?php if(isset($message)) { echo $message; } ?></p>
     </form>
 </div>
 </body>

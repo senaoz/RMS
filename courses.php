@@ -8,11 +8,12 @@
 include("menu.php"); include("parameters.php");
 
 if (!isset($_SESSION["u_mail"])){ header("Location: index.php"); }
-
 $role = $_SESSION["role"]; $u_mail = $_SESSION["u_mail"];
 if ($role == 'Professor') header("Location: profTables.php");
+if ($role == 'Admin') header("Location: adminTables.php");
 
 if(isset($_GET['m'])) $message = $_GET['m'];
+
 ?>
 <h1 class="gradientText">My Courses</h1>
 <table id="tables">
@@ -24,6 +25,7 @@ if(isset($_GET['m'])) $message = $_GET['m'];
         <th>Professor Name</th>
         <th>Professor Surname</th>
         <th>Professor Mail</th>
+        <th>Consent Status</th>
         <th style="width: 80px;">Drop</th>
         <th>Grades</th>
     </tr>
@@ -38,6 +40,7 @@ if(isset($_GET['m'])) $message = $_GET['m'];
         $prof_name = $rowC[5];
         $prof_surname = $rowC[6];
         $c_professor_mail = $rowC[4];
+        $consent = $rowC[12];
         ?>
         <tr>
             <td><?php echo $c_id;  ?></td>
@@ -46,6 +49,7 @@ if(isset($_GET['m'])) $message = $_GET['m'];
             <td><?php echo $prof_name;  ?></td>
             <td><?php echo $prof_surname;  ?></td>
             <td><?php echo $c_professor_mail;  ?></td>
+            <td><?php echo $consent;  ?></td>
             <td><a id="edit" href="dropCourse.php?drop=<?php echo $u_mail ?>&c_id=<?php echo $c_id ?>">Drop</a></td>
             <td>      </td>
         </tr> <?php
