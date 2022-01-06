@@ -1,5 +1,5 @@
 # Registration Management System
-I aimed to construct a simple Registration Management System (RMS) for an academic institution using PHP technology, Apache Web Server, and SQL database. In this project, users are registered by the admin with a unique email address. They are divided into three by their roles; 
+I aimed to construct a simple Registration Management System (RMS) for an academic institution using PHP, Apache Web Server, and SQL database. In this project, users are registered by the admin with a unique email address. They are divided into three by their roles; 
 <ul>
 <li>Administrator</li>
 <li>Professors</li>
