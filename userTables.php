@@ -5,12 +5,13 @@
 </head>
 <body style="padding: 5% 8%;">
 <?php include("menu.php"); include("parameters.php");
+
+//We check the role as the page contents are user role specific
 if ($_SESSION['role'] == 'Professor') {
     header("Location: profTables.php"); }
 
 if (!isset($_SESSION["u_mail"])){
-    header("Location: index.php");
-}
+    header("Location: index.php"); }
 
 $role = $_SESSION["role"]; $u_mail = $_SESSION["u_mail"]; ?>
 <h2 class="gradientText">My Information</h2>

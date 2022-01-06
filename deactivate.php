@@ -21,8 +21,8 @@ if (!isset($_SESSION["u_mail"])) header("Location: index.php");
 
 $result = $db->query("SELECT * FROM `users` WHERE u_mail='$mail'"); $row = $result->fetch_row(); $role = $row[8];
 
-if ($role == 'Professor') $courses = $db -> query("SELECT * FROM `courses` WHERE c_professor_mail='$u_mail'");
-if ($role == 'Student') $courses = $db -> query("SELECT * FROM `courseDetails` WHERE s_mail='$u_mail'");
+if ($role == 'Professor') $courses = $db -> query("SELECT * FROM `courses` WHERE c_professor_mail='$u_mail'"); //for checking whether that professor is teaching any course and warning the user if that is the case.
+if ($role == 'Student') $courses = $db -> query("SELECT * FROM `courseDetails` WHERE s_mail='$u_mail'"); //for checking whether that student is taking any course and warning the user if that is the case.
 
 if ($courses->num_rows == 0) { ?>
     <div style="margin-top: 10em">

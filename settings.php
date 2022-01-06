@@ -1,6 +1,6 @@
-<?php include("menu.php");
+<?php include("menu.php"); include("db.php");
+
 $u_mail = $_SESSION["u_mail"];
-include("db.php");
 
 $query = "SELECT * FROM `parameters`";
 $result = $db->query($query);

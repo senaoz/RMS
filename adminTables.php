@@ -6,6 +6,7 @@
 <body style="padding: 5% 8%;">
 <?php include("menu.php"); include("db.php"); include("parameters.php");
 
+//We check the role as the page contents are user role specific
 if ($_SESSION['role'] !== 'Admin') header("Location: index.php"); } ?>
 
 <h2 class="gradientText">Courses</h2>
