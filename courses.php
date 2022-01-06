@@ -85,7 +85,10 @@ if(isset($_GET['m'])) $message = $_GET['m'];
             <td><?php echo $c_current;  ?></td>
             <td><?php echo $c_consent;  ?></td>
             <td><?php echo $c_professor_mail;  ?></td>
-            <td><a id="edit" href="addCourse.php?add=<?php echo $u_mail ?>&c_id=<?php echo $c_id ?>">Add</a></td>
+            <?php if ($c_consent == 'YES') {?>
+                <td><a id="edit" href="addCourse.php?add=<?php echo $u_mail ?>&c_id=<?php echo $c_id ?>">Send Consent</a></td><?php }?>
+            <?php if ($c_consent == 'NO') {?>
+                <td><a id="edit" href="addCourse.php?add=<?php echo $u_mail ?>&c_id=<?php echo $c_id ?>">Add</a></td><?php }?>
         </tr> <?php
     }
 
