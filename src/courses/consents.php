@@ -1,8 +1,8 @@
 <html>
 <head>
     <title>Consents</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <link rel="stylesheet" type="text/css" href="grades.css">
+    <link rel="stylesheet" type="text/css" href="./style/style.css">
+    <link rel="stylesheet" type="text/css" href="./style/grades.css">
 </head>
 <body style="padding: 5% 8%;">
 <?php include("menu.php"); include("db.php");
