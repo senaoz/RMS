@@ -1,4 +1,4 @@
-<?php include("menu.php"); include("db.php");
+<?php include("src/menu.php"); include("src/db.php");
 
 $u_mail = $_SESSION["u_mail"];
 

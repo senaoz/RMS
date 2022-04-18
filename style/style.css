@@ -6,7 +6,7 @@ body {
 }
 
 #banner {
-    background-image: url(background.jpeg);
+    background-image: url(../background.jpeg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;

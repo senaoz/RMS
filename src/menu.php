@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
     <style>
         ul {
             list-style-type: none;
@@ -61,49 +61,49 @@ if (isset($_SESSION["u_mail"])){
     if ($_SESSION["role"] == 'Admin') {
             echo '<ul>
     <li><a href="index.php">Home</a></li>
-    <li><a href="adminTables.php">Admin Tables</a></li>
+    <li><a href="src/pages/adminTables.php">Admin Tables</a></li>
     <li class="dropdown">
-        <a href="userindex.php" class="dropbtn">Admin Menu</a>
+        <a href="src/pages/userindex.php" class="dropbtn">Admin Menu</a>
         <div class="dropdown-content">
-            <a href="userindex.php">My Page</a>
-            <a href="settings.php">Settings</a>
-            <a href="register.php">Register New Users</a>
-            <a href="createCourses.php">Create New Courses</a>
-            <a href="logout.php">Logout</a>
+            <a href="src/pages/userindex.php">My Page</a>
+            <a href="src/pages/settings.php">Settings</a>
+            <a href="src/pages/register.php">Register New Users</a>
+            <a href="src/courses/createCourses.php">Create New Courses</a>
+            <a href="src/logout.php">Logout</a>
             </ul>';
         }
 
     if ($_SESSION["role"] == 'Professor') {
         echo '<ul>
     <li><a href="index.php">Home</a></li>
-    <li><a href="profTables.php">My Courses</a></li> 
-    <li><a href="consents.php">Consents</a></li>
+    <li><a href="src/pages/profTables.php">My Courses</a></li>
+    <li><a href="src/courses/consents.php">Consents</a></li>
     <li class="dropdown">
-        <a href="userindex.php" class="dropbtn">User Menu</a>
+        <a href="src/pages/userindex.php" class="dropbtn">User Menu</a>
         <div class="dropdown-content">
-            <a href="userindex.php">My Page</a>
-            <a href="logout.php">Logout</a>
+            <a href="src/pages/userindex.php">My Page</a>
+            <a href="src/logout.php">Logout</a>
             </ul>';
     }
 
     if ($_SESSION["role"] == 'Student') {
         echo '<ul>
     <li><a href="index.php">Home</a></li>
-    <li><a href="userTables.php">My Information</a></li>
-    <li><a href="courses.php">Courses</a></li>
+    <li><a href="src/pages/userTables.php">My Information</a></li>
+    <li><a href="src/courses/courses.php">Courses</a></li>
     <li class="dropdown">
-        <a href="userindex.php" class="dropbtn">User Menu</a>
+        <a href="src/pages/userindex.php" class="dropbtn">User Menu</a>
         <div class="dropdown-content">
-            <a href="userindex.php">My Page</a>
-            <a href="logout.php">Logout</a>
+            <a href="src/pages/userindex.php">My Page</a>
+            <a href="src/logout.php">Logout</a>
             </ul>';
     }
 
 }
 else { echo '<ul>
     <li><a href="index.php">Home</a></li>
-    <li><a href="courses.php">Courses</a></li>
-    <li><a href="login.php">Login</a></li>
+    <li><a href="src/course/courses.php">Courses</a></li>
+    <li><a href="src/login.php">Login</a></li>
 </ul>';
 }
 
