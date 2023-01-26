@@ -1,13 +1,8 @@
 # Registration Management System
 
-This project aimed to construct a simple Registration Management System (RMS) for an academic institution using PHP, Apache Web Server, and SQL database. In this project, users are registered by the admin with a unique email address. They are divided into three by their roles;
+This project aims to create a simple and easy to use Registration Management System (RMS) for academic institutions. The RMS is built using **PHP, Apache Web Server, and MySQL database**. 
 
--   Administrator
--   Professors
--   Students
-
-The capability of users changes base on their roles in the system. 
-
+Users are divided into three roles: Administrator, Professor, and Student. Each role has different capabilities within the system.
 
  > **Note:** This project developed for MIS233 - Web Based Application Programming Course in Bogazici University.
 
@@ -31,3 +26,22 @@ The capability of users changes base on their roles in the system.
  - View detailed information about their courses
  - Update their passwords.
 
+
+## Getting Started
+
+To use this system, you will need to have a web server with PHP and an SQL database installed. Once you have those set up, you can import the SQL file included in the repository to create the necessary tables in the database. After that, you can customize the config.php file to match your server and database settings.
+
+### Prerequisites
+Web server with PHP
+SQL database (e.g. MySQL)
+
+## Installing
+1. Clone the repository
+2. Import the SQL file to your database
+3. Customize the config.php file to match your server and database settings
+4. Run the application on your web server
+
+## Built With
+- PHP
+- Apache Web Server
+- MySQL database
