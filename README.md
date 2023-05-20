@@ -4,7 +4,7 @@ This project aims to create a simple and easy to use Registration Management Sys
 
 Users are divided into three roles: Administrator, Professor, and Student. Each role has different capabilities within the system.
 
- > **Note:** This project developed for MIS233 - Web Based Application Programming Course in Bogazici University.
+ > **Note:** This project developed for MIS 336 - Business App Development Course in Bogazici University.
 
 ### Administrators 
  - Register new users & courses, 
